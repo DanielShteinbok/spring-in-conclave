@@ -12,7 +12,7 @@ public class Host {
             e.printStackTrace();
             System.out.println("This platform does not support hardware enclaves");
         }
-        String className = "com.example.enclave.DemoApplication";
+        String className = "com.example.enclave.GraalOidcApplication";
         try (EnclaveHost enclave = EnclaveHost.load(className)){
             enclave.start(null, null);
         } catch (EnclaveLoadException e) {
