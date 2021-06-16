@@ -9,6 +9,9 @@ pluginManagement {
                 throw new Exception("The $repoPath directory doesn't seem to exist or isn't a Maven repository; it should be the SDK 'repo' subdirectory. See the Conclave tutorial on https://docs.conclave.net")
             url = repoPath
         }
+        // added spring dependency
+        maven { url 'https://repo.spring.io/release' }
+
         // Add standard repositories back.
         gradlePluginPortal()
         jcenter()
@@ -17,6 +20,7 @@ pluginManagement {
 
     plugins {
         id 'com.r3.conclave.enclave' version conclaveVersion apply false
+        id 'org.springframework.experimental.aot' version '0.10.0'
     }
 }
 
