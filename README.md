@@ -51,3 +51,12 @@ GraalVM support is necessary to run the Spring Boot server in an Enclave
 because if it isn't included, the compiler throws errors similar to what happens
 when you run a Spring application without the GraalVM plugin in GraalVM).
 
+# UPDATE: THIS REPO IS NO LONGER USED
+It turns out that some parts of the Spring Framework 
+(particularly some things used by Spring Security)
+are not compatible with GraalVM, and Spring's Native and AOT plugins are only in beta.
+Thus, it may be an uphill battle to try to run the entire Spring server inside the enclave.
+Instead, the plan now is to run the server (performing the actual OAuth flow steps)
+inside the untrusted host, and only to cryptographically verify the ID tokens etc
+from within the enclave. Since this is such a major change, it will be tracked in a 
+[new repo](https://github.com/DanielShteinbok/spring-oidc-conclave-authentication).
